@@ -36,6 +36,8 @@ export function AuthProvider({ children }) {
     });
     const data = await res.json().catch(() => ({}));
     if (!res.ok) throw new Error(data.error || 'Signup failed');
+    if (data.user) localStorage.setItem('commercial_user_v1', JSON.stringify(data.user));
+    if (data.token) localStorage.setItem('commercial_token_v1', data.token);
     setUser(data.user);
     setToken(data.token);
   }
@@ -48,6 +50,8 @@ export function AuthProvider({ children }) {
     });
     const data = await res.json().catch(() => ({}));
     if (!res.ok) throw new Error(data.error || 'Login failed');
+    if (data.user) localStorage.setItem('commercial_user_v1', JSON.stringify(data.user));
+    if (data.token) localStorage.setItem('commercial_token_v1', data.token);
     setUser(data.user);
     setToken(data.token);
   }

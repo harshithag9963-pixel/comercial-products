@@ -24,14 +24,9 @@ export default function Header() {
           <div className="nav-sep" />
 
           {!user ? (
-            <>
-              <NavLink to="/login" className="nav-link">
-                Login
-              </NavLink>
-              <NavLink to="/signup" className="nav-link">
-                Sign up
-              </NavLink>
-            </>
+            <NavLink to="/login" className="btn btn-ghost">
+              Account
+            </NavLink>
           ) : (
             <>
               <span className="nav-user">Hi, {user.name}</span>
